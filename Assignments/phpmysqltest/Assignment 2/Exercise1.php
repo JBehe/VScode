@@ -6,14 +6,14 @@
 
 function listMaker(){
 
-    $listNum = 4 ;
+    $list= Array("1","2","3","4");
     $listContent = Array("1","2","3","4","5");
     $starter = '<ul>';
     $ender = '</ul>';
     $listStarter = '<li>';
     $listEnder = '</li>';
 
-    for ($x = 0; $x < $listNum; $x++){
+    for ($x = 0; $x < count($list); $x++){
         echo $starter;
         echo $listStarter;
         echo $x+1;
