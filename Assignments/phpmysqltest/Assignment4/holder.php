@@ -33,7 +33,7 @@ if(count($_POST) > 0){
      <br>
      <label for="nEntry" class="form-label" > List of Names </label>
      <br>
-     <textarea style="height: 500px;" class="form-control" id="namelist" name="namelist"><?php echo $output  ?></textarea>
+     <textarea style="height: 500px;" class="form-control" id="namelist" name="namelist"><?php echo $output ?></textarea>
      
     
 
