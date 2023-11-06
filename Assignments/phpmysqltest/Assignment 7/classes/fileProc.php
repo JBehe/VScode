@@ -31,7 +31,7 @@ class FileProc{
                         $test = "SELECT * From filelist";
                         //$result = this->$conn->query($test);
 
-                        return "file S";
+                        return "file Succesfully made";
                     }
                 }
             
