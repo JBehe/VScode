@@ -13,13 +13,13 @@ $arr = $fileProc->init();
 </head>
  <body>
     <div class = "container">
-    <form method ="post">
+    <form action="index.php" method="post" enctype="multipart/form-data">
 
      <label for="fname" class="form-label" style= "font-size: 50px"> File Display and Upload </label>
      <br>
-     <label for="fname" class="form-label" >  </label>
+     <label for="fname" class="form-label" > Upload File </label>
      <br>
-     <label for="nEntry" class="form-label" > Upload File </label>
+     <label for="nEntry" class="form-label" > <?php echo $arr[0]; ?> </label>
      <br>
      <input type="text"  name= "FileName"  class="form-control" >
      <br>
@@ -31,7 +31,7 @@ $arr = $fileProc->init();
      <br>
      <label for="fname" class="form-label" style= "font-size: 50px"> Display File List </label>
      <br>
-     <label for="fileList" class="form-label" >  <?php print_r($arr) ?> </label>
+     <label for="fileList" class="form-label" >  <? echo $arr[1] ?> </label>
     
 
 
