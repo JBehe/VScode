@@ -1,7 +1,7 @@
 <?php
 require_once 'classes/fileProc.php';
-//$fileProc = new FileProc();
-//$arr = $fileProc->init();
+$fileProc = new FileProc();
+$arr = $fileProc->init();
 ?>
 
 <html>
@@ -19,19 +19,19 @@ require_once 'classes/fileProc.php';
      <br>
      <label for="fname" class="form-label" >  </label>
      <br>
-     <label for="nEntry" class="form-label" > Folder Name </label>
+     <label for="nEntry" class="form-label" > Upload File </label>
      <br>
-     <input type="text"  name= "FolderName"  class="form-control" >
+     <input type="text"  name= "FileName"  class="form-control" >
      <br>
-     <label for="nEntry" class="form-label" > choose file </label>
+     <label for="nEntry" class="form-label" > Choose File </label>
      <br>
-     <input type="file" id="namelist"  name="File Content"></input>
+     <input type="file" id="fileSelection"  name="File Content"></input>
      <br><br>
-     <button class ="btn btn-primary" name="AddName"> Choose File </button>
+     <button class ="btn btn-primary" name="submit"> Choose File </button>
      <br>
      <label for="fname" class="form-label" style= "font-size: 50px"> Display File List </label>
      <br>
-     <label for="fname" class="form-label" >  </label>
+     <label for="fileList" class="form-label" >  <?php print_r($arr) ?> </label>
     
 
 
