@@ -1,21 +1,42 @@
 <?php
+    require_once("..\classes\Pdo_methods");
 
-require_once('..\classes\Db_conn');
+    $data = json_decode($_POST['name']);
 
-$dbHost = 'localhost';
-$dbName = 'jbehe';
-$dbUsr = 'jbehe';
-$dbPass = 'yqyX3BUA8vEJ';
-class AddNames{
-    private $conn = mysqli_connect($servername, $username, $password, $database);
-    //private $json file_get_contents('../classes/Db_conn.php');
-    //private $conn = mysql_connect
-    public function nameAdder(){
-        
+    $pdo = new PdoMethods();
+
+    $sql = "INSERT INTO names (name) VALUES (:name)";
+
+    $bindings = [
+        [':name', $data-> name, 'str']
+    ];
+
+    $result = $pdo->otherBinded($sql, $bindings);
+
+    if ($result === 'error'){
+        $response = (object)[
+            'masterstatus'=>'error',
+            'resp' => 'An error has occured entering that name'
+        ];
+    }else{
+        $response = (object)[
+            'masterstatus' => 'success',
+            'resp' => 'name entered successfully'
+        ];
     }
 
+    $output = "{$data -> displayNames}";
 
-}
+         $response = (object)[
+            'masterstatus'=>'success',
+            'resp'=>$output
+        ];
+        
+        echo json_encode($response);
+
+
+
+
 
 
 

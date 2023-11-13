@@ -1,13 +1,18 @@
 <?php
 
-require_once('..\classes\Pdo_methods');
+        require_once("..\classes\Pdo_methods");
 
-class DisplayNames{
-
-    public function nameDisplayer(){
-
-    }
+        $data = json_decode($_POST['name']);
 
 
-}
+         $output = "{$data -> displayNames}";
+
+         $response = (object)[
+            'masterstatus'=>'success',
+            'resp'=>$output
+        ];
+        
+        echo json_encode($response);
+
+
 ?>
