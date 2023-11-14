@@ -1,7 +1,7 @@
 <?php
-    require_once("..\classes\Pdo_methods");
+    require_once("../classes/Pdo_methods.php");
 
-    $data = json_decode($_POST['name']);
+    $data = json_decode($_POST['data']);
 
     $pdo = new PdoMethods();
 
@@ -25,7 +25,7 @@
         ];
     }
 
-    $output = "{$data -> displayNames}";
+    $output = "{$data -> name}";
 
          $response = (object)[
             'masterstatus'=>'success',
