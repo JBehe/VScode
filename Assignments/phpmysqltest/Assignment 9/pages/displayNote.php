@@ -1,7 +1,7 @@
 <?php
-require_once'../php/addDisplayNotes.php';
-//$dt = new Date_time();
-//$notes = $dt->checkSubmit();
+require_once'../classes/addDisplayNotes.php';
+$dt = new addDisplayNotes();
+$notes = $dt->checkSubmit();
 ?>
 
 <html>
@@ -18,12 +18,15 @@ require_once'../php/addDisplayNotes.php';
     <p><a href = "addNote.php"> Add Notes</a> </p>
 
     <p> <label for = "firstDate" class = "form-label"> Beginning date </label></p>
-    <input id="firstDate" type="datetime-local" name="date1" width="501px"/><br><br>
+    <input id="firstDate" type="date" name="date1" width="501px"/><br><br>
     
     <p> <label for = "secondDate" class = "form-label"> Ending Date </label></p>
-    <input id="secondDate" type="datetime-local" name="date2" width="501px"/><br><br>
+    <input id="secondDate" type="date" name="date2" width="501px"/><br><br>
 
-    <button class ="btn btn-primary" name="getNote"> get Note </button>
+    <button id = getNote class ="btn btn-primary" name="getNote"> get Note </button>
+    <p><div><?php echo $notes ?></div></p> 
+    <!-- notes should be running to check if the get note button was pushed no complete error catch system is implemented
+    but should still return the default statement of "no notes within the given time frame"-->
 
 </html>
 
