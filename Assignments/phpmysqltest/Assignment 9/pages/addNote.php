@@ -21,11 +21,11 @@ $notes = $dt->checkSubmit();
     <p><div><?php echo $notes; ?></div></p>
     
     <p> <label for = "dateEntry" class = "form-label"> Date and Time </label></p>
-    <input id="dateEntry" type="datetime-local" name="noteDate" width="501px"/><br><br>
+    <input id="dateEntry" type="datetime-local" name="dateEntry" width="501px"/><br><br>
     
     <p> <label for = "noteEntry" class = "form-label"> Note </label> </p>
     
-    <input id = "noteEntry" type = "text" style="height: 500px;" class = "form-control"> </input><br><br>
+    <input id = "noteEntry" type = "text" name = "noteEntry" style="height: 500px;" class = "form-control" > </input><br><br>
     <button id = addNote class ="btn btn-primary" name="addNote"> Add Note </button>
 
 
