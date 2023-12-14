@@ -12,6 +12,8 @@ class Validation{
 			case "phone": return $this->phone($value); break;
 			case "email": return $this->email($value); break;
 			case "password": return $this->password($value); break;
+			case "address": return $this->password($value); break;
+			case "dob":  return $this->password($value); break;
 			
 			
 		}
@@ -24,17 +26,28 @@ class Validation{
 		$match = preg_match('/^[a-z-\' ]{1,50}$/i', $value);
 		return $this->setError($match);
 	}
+	private function address($value){
+		$match = preg_match('/^[a-z-0-9\' ]{1,255}$/i', $value);
+		return $this->setError($match);
+	}
 
 	private function phone($value){
 		$match = preg_match('/\d{3}\.\d{3}.\d{4}/', $value);
 		return $this->setError($match);
 	}
 	private function email($value){
-		$match = preg_match('/\d{3}\.\d{3}.\d{4}/', $value);
+		$match = preg_match('/^[a-z-\' ]{1,255}$/i', $value);
+		//$match = preg_match_all('/^[a-z-\' ]{1,255}$/i', $value);
+		//$match = preg_match('/^[a-z-0-9\' ]{1,255}$/i', $value);
+		//$match = preg_match('/^[a-z-0-@\' ]{1,255}$/i', $value);
 		return $this->setError($match);
 	}
 	private function password($value){
-		$match = preg_match('/\d{3}\.\d{3}.\d{4}/', $value);
+		$match = preg_match('/^[a-z-\' ]{1,255}$/i', $value);
+		return $this->setError($match);
+	}
+	private function dob($value){
+		$match = preg_match('/\d{2}\.\d{2}.\d{4}/', $value);
 		return $this->setError($match);
 	}
 

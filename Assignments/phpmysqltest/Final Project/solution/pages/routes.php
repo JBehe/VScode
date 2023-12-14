@@ -5,14 +5,14 @@ $path = "index.php?page=welcome";
 
 $nav=<<<HTML
     <nav>
-        <ul>
-            <li><a href="index.php?page=login">Logout</a></li>
-            <li><a href="index.php?page=addContact">Add Contact Information</a></li>
-            <li><a href="index.php?page=deleteContacts">Delete contact(s)</a></li>
-            <li><a href="index.php?page=addAdmin"> Add Admin Information</a></li>
-            <li><a href="index.php?page=deleteAdmins"> Delete Admin(s)</a></li>
-        </ul>
-    </nav>
+    <ul style="list-style-type: none; margin: 0; padding: 0; overflow: hidden;">
+        <li style="float: left; margin-right: 20px;"><a href="index.php?page=addContact">Add Contact</a></li>
+        <li style="float: left; margin-right: 20px;"><a href="index.php?page=deleteContacts">Delete contact(s)</a></li>
+        <li style="float: left; margin-right: 20px;"><a href="index.php?page=addAdmin">Add admin</a></li>
+        <li style="float: left; margin-right: 20px;"><a href="index.php?page=deleteAdmins">Delete admin(s)</a></li>
+        <li style="float: left;"><a href="index.php?page=login">logout</a></li>
+    </ul>
+</nav>
 HTML;
 
 if(isset($_GET)){
@@ -39,7 +39,7 @@ if(isset($_GET)){
         require_once('pages/deleteAdmins.php');
         $result = init();
     }
-    else if($_GET['page'] === "login"){
+    else if($_GET['page'] === ""){
         require_once('pages/login.php');
         $result = init();
     }

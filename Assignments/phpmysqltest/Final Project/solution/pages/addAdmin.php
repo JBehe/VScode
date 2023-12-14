@@ -53,7 +53,7 @@ $elementsArr = [
 		"regex"=>"email"
   ],
   "password"=>[
-		"errorMessage"=>"<span style='color: red; margin-left: 15px;'>Email cannot be blank or it is not formatted correctly</span>",
+		"errorMessage"=>"<span style='color: red; margin-left: 15px;'>Password cannot be blank</span>",
     "errorOutput"=>"",
     "type"=>"text",
 		"value"=>"password123",
@@ -85,8 +85,8 @@ function addData($post){
 
       $bindings = [
         [':name',$post['name'],'str'],
-        [':phone',$post['phone'],'str'],
-        [':state',$post['state'],'str'],
+        [':email',$post['email'],'str'],
+        [':password',$post['password'],'str'],
         [':status',$status,'str'],
       ];
 
@@ -106,18 +106,18 @@ function getForm($acknowledgement, $elementsArr){
   $options = $stickyForm->createOptions($elementsArr['status']);
 
  $form = <<<HTML
-    <form method="post" action="index.php?page=addContact">
+    <form method="post" action="index.php?page=addAdmin">
     <div class="form-group">
       <label for="name">Name (letters only){$elementsArr['name']['errorOutput']}</label>
       <input type="text" class="form-control" id="name" name="name" value="{$elementsArr['name']['value']}" >
     </div>
     <div class="form-group">
       <label for="email">Email {$elementsArr['email']['errorOutput']}</label>
-      <input type="text" class="form-control" id="phone" name="phone" value="{$elementsArr['phone']['value']}" >
+      <input type="text" class="form-control" id="email" name="email" value="{$elementsArr['email']['value']}" >
     </div>
     <div class="form-group">
-      <label for="password">Password {$elementsArr['email']['errorOutput']}</label>
-      <input type="text" class="form-control" id="password" name="password" value="{$elementsArr['phone']['value']}" >
+      <label for="password">Password {$elementsArr['password']['errorOutput']}</label>
+      <input type="password" class="form-control" id="password" name="password" value="{$elementsArr['password']['value']}" >
     </div>
             
     <div class="form-group">
