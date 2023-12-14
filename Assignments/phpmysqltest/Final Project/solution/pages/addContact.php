@@ -89,7 +89,9 @@ $elementsArr = [
   "age"=>[
     "action"=>"required",
     "type"=>"radio",
-    "value"=>["10-18"=>"", "19-30"=>"", "30-50"=>"", "51+"=>"",]
+    "value"=>["10-18"=>"", "19-30"=>"", "30-50"=>"", "51+"=>"",],
+    "errorMessage"=>"<span style='color: red; margin-left: 15px;'>You must select an age range</span>",
+    "errorOutput"=>"",
   ]
 ];
 
@@ -103,7 +105,7 @@ function addData($post){
 
       $pdo = new PdoMethods();
 
-      $sql = "INSERT INTO contacts (name, phone, city, state, dob, address, contacts, age) VALUES (:name, :phone, :city, :state, :dob, :address :contacts, :age)";
+      $sql = "INSERT INTO contacts (name, phone, city, state, email, dob, address, contacts, age) VALUES (:name, :phone, :city, :email, :state, :dob, :address, :contacts, :age)";
 
       /* THIS TAKE THE ARRAY OF CHECK BOXES AND PUT THE VALUES INTO A STRING SEPERATED BY COMMAS  */
       if(isset($_POST['contacts'])){
@@ -113,6 +115,9 @@ function addData($post){
         }
         /* REMOVE THE LAST COMMA FROM THE CONTACTS */
         $contacts = substr($contacts, 0, -1);
+      }
+      else{
+        $contacts = '';
       }
 
       if(isset($_POST['age'])){
@@ -171,7 +176,7 @@ $form = <<<HTML
       <input type="text" class="form-control" id="email" name="email" value="{$elementsArr['email']['value']}" >
     </div>
     <div class="form-group">
-      <label for="dob">Date of Birth(format mm-dd-yyyy) {$elementsArr['dob']['errorOutput']}</label>
+      <label for="dob">Date of Birth(format mm.dd.yyyy) {$elementsArr['dob']['errorOutput']}</label>
       <input type="text" class="form-control" id="dob" name="dob" value="{$elementsArr['dob']['value']}" >
     </div>
 
@@ -201,22 +206,22 @@ $form = <<<HTML
     <p>Please select an age range (you must select one):</p>
     <div class="form-check form-check-inline">
       <input class="form-check-input" type="radio" name="age" id="age1" value="blue"  {$elementsArr['age']['value']['10-18']}>
-      <label class="form-check-label" for="age1">10-18</label>
+      <label class="form-check-label" for="age1">10-18 {$elementsArr['age']['errorOutput']}</label>
     </div>
 
     <div class="form-check form-check-inline">
       <input class="form-check-input" type="radio" name="age" id="age2" value="brown"  {$elementsArr['age']['value']['19-30']}>
-      <label class="form-check-label" for="age2">19-30</label>
+      <label class="form-check-label" for="age2">19-30{$elementsArr['age']['errorOutput']}</label>
     </div>
 
     <div class="form-check form-check-inline">
       <input class="form-check-input" type="radio" name="age" id="age" value="hazel"  {$elementsArr['age']['value']['30-50']}>
-      <label class="form-check-label" for="age3">30-50</label>
+      <label class="form-check-label" for="age3">30-50{$elementsArr['age']['errorOutput']}</label>
     </div>
 
     <div class="form-check form-check-inline">
       <input class="form-check-input" type="radio" name="age" id="age4" value="green"  {$elementsArr['age']['value']['51+']}>
-      <label class="form-check-label" for="age4">51+</label>
+      <label class="form-check-label" for="age4">51+{$elementsArr['age']['errorOutput']}</label>
     </div>
 
     

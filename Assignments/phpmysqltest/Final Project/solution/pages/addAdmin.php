@@ -62,7 +62,7 @@ $elementsArr = [
    
   "status"=>[
     "type"=>"select",
-    "options"=>["mi"=>"Michigan","oh"=>"Ohio","pa"=>"Pennslyvania","tx"=>"Texas"],
+    "options"=>["Admin"=>"Admin","Staff"=> "Staff"],
 		"selected"=>"oh",
 		"regex"=>"name"
 	],
@@ -81,8 +81,18 @@ function addData($post){
       /* THIS TAKE THE ARRAY OF CHECK BOXES AND PUT THE VALUES INTO A STRING SEPERATED BY COMMAS  */
       
 
-
-
+      if(isset($_POST['status'])){
+        $status = $_POST['status'];
+      }
+      else {
+        $status = "";
+      }
+      foreach (hash_algos() as $v){
+        $passwordHash = hash($v, $post['password'], false);
+        $password = $passwordHash;
+      }
+      
+      
       $bindings = [
         [':name',$post['name'],'str'],
         [':email',$post['email'],'str'],
@@ -96,7 +106,7 @@ function addData($post){
         return getForm("<p>There was a problem processing your form</p>", $elementsArr);
       }
       else {
-        return getForm("<p>Contact Information Added</p>", $elementsArr);
+        return getForm("<p>Admin Information Added</p>", $elementsArr);
       }
       
 }

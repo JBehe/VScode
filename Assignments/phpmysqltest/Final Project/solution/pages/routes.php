@@ -10,7 +10,7 @@ $nav=<<<HTML
         <li style="float: left; margin-right: 20px;"><a href="index.php?page=deleteContacts">Delete contact(s)</a></li>
         <li style="float: left; margin-right: 20px;"><a href="index.php?page=addAdmin">Add admin</a></li>
         <li style="float: left; margin-right: 20px;"><a href="index.php?page=deleteAdmins">Delete admin(s)</a></li>
-        <li style="float: left;"><a href="index.php?page=login">logout</a></li>
+        <li style="float: left;"><a href="logout.php">logout</a></li>
     </ul>
 </nav>
 HTML;
@@ -40,7 +40,7 @@ if(isset($_GET)){
         $result = init();
     }
     else if($_GET['page'] === ""){
-        require_once('pages/login.php');
+        require_once('logout.php');
         $result = init();
     }
     
